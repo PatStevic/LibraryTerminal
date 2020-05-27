@@ -1,0 +1,1 @@
+"# LibraryTerminal"  initgit add README.mdgit commit -m "first commit"git remote add origin https://github.com/PatStevic/LibraryTerminal.gitgit push -u origin master                
