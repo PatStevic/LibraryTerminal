@@ -6,8 +6,7 @@ namespace LibraryTerminal
 {
     public enum BookStatus
     {
-        Missing, 
-        Checked_In,
-        Checked_Out,
+        CheckedIn,
+        CheckedOut
     }
 }
