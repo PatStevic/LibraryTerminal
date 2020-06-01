@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kylenedbal/Projects/MidtermKyle/LibraryTerminal/LibraryTerminal/LibraryTerminal.csproj": {}
+    "/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/MidtermKyle.csproj": {}
   },
   "projects": {
-    "/Users/kylenedbal/Projects/MidtermKyle/LibraryTerminal/LibraryTerminal/LibraryTerminal.csproj": {
+    "/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/MidtermKyle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kylenedbal/Projects/MidtermKyle/LibraryTerminal/LibraryTerminal/LibraryTerminal.csproj",
-        "projectName": "LibraryTerminal",
-        "projectPath": "/Users/kylenedbal/Projects/MidtermKyle/LibraryTerminal/LibraryTerminal/LibraryTerminal.csproj",
+        "projectUniqueName": "/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/MidtermKyle.csproj",
+        "projectName": "MidtermKyle",
+        "projectPath": "/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/MidtermKyle.csproj",
         "packagesPath": "/Users/kylenedbal/.nuget/packages/",
-        "outputPath": "/Users/kylenedbal/Projects/MidtermKyle/LibraryTerminal/LibraryTerminal/obj/",
+        "outputPath": "/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/kylenedbal/.config/NuGet/NuGet.Config"
