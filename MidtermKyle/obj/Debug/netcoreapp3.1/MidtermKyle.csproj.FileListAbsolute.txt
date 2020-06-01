@@ -1,0 +1,11 @@
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/bin/Debug/netcoreapp3.1/MidtermKyle.deps.json
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/bin/Debug/netcoreapp3.1/MidtermKyle.runtimeconfig.json
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/bin/Debug/netcoreapp3.1/MidtermKyle.runtimeconfig.dev.json
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/bin/Debug/netcoreapp3.1/MidtermKyle.dll
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/bin/Debug/netcoreapp3.1/MidtermKyle.pdb
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/obj/Debug/netcoreapp3.1/MidtermKyle.csproj.CoreCompileInputs.cache
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/obj/Debug/netcoreapp3.1/MidtermKyle.AssemblyInfoInputs.cache
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/obj/Debug/netcoreapp3.1/MidtermKyle.AssemblyInfo.cs
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/obj/Debug/netcoreapp3.1/MidtermKyle.dll
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/obj/Debug/netcoreapp3.1/MidtermKyle.pdb
+/Users/kylenedbal/Projects/MidtermKyle/MidtermKyle/obj/Debug/netcoreapp3.1/MidtermKyle.genruntimeconfig.cache

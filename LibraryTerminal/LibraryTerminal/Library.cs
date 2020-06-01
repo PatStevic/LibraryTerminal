@@ -1,29 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Collections;
 
-namespace LibraryTerminal
+namespace MidtermKyle
 {
-    class Library
+    public class Library
     {
         private List<Book> _bookLibrary;
-        public void LibraryOfBooks()
+        public List<Book> LibraryOfBooks()
         {
             _bookLibrary = new List<Book>();
-            _bookLibrary.Add(new Book { Title = "Discover Your Clifton Strengths", Author = "Tom Rath", Status = BookStatus.CheckedIn});
-            _bookLibrary.Add(new Book { Title = "Thrifty Years", Author = "Hank Meijer", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "Astrophysics For People In a Hurry", Author = "Neil DeGrasse Tyson", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "The Tanning of America", Author = "Steve Stoute", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "How To Win Friends and Influence People", Author = "Dale Carnegie", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "The Siren", Author = "Tiffany Reisz", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "A Game of Thornes", Author = "George R.R. Martin", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "The Bit Picture", Author = "Shawn Carroll", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "Gabriel's Inferno", Author = "Sylvain Reynard", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "The End of Our Story", Author = "Mag Haston", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "First Field Guide Amphibians", Author = "Bryan Cassie", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "Strengths Based Leadership", Author = "Tom Rath", Status = BookStatus.CheckedIn });
-            _bookLibrary.Add(new Book { Title = "Everything Happens For A Reason", Author = "Mira Kirshenbaum", Status = BookStatus.CheckedIn });
+            _bookLibrary.Add(new Book("Discover Your Clifton Strengths", "Rath"));
+            _bookLibrary.Add(new Book("Thrifty Years", "Meijer"));
+            _bookLibrary.Add(new Book("Astrophysics For People In a Hurry", "DeGrasse Tyson"));
+            _bookLibrary.Add(new Book("The Tanning of America", "Stoute"));
+            _bookLibrary.Add(new Book("How To Win Friends and Influence People", "Carnegie"));
+            _bookLibrary.Add(new Book("The Siren", "Reisz"));
+            _bookLibrary.Add(new Book("A Game of Thornes", "Martin"));
+            _bookLibrary.Add(new Book("The Bit Picture", "Carroll"));
+            _bookLibrary.Add(new Book("Gabriel's Inferno", "Reynard"));
+            _bookLibrary.Add(new Book("The End of Our Story", "Haston"));
+            _bookLibrary.Add(new Book("First Field Guide Amphibians", "Cassie"));
+            _bookLibrary.Add(new Book("Strengths Based Leadership", "Rath"));
+            _bookLibrary.Add(new Book("Everything Happens For A Reason", "Kirshenbaum"));
+
+            return _bookLibrary;
         }
+
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public BookStatus Status { get; set; }
     }
 }
