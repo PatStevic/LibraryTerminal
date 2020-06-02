@@ -23,54 +23,11 @@ namespace MidtermKyle
         public DateTime CheckOutDate { get; set; }
         public DateTime DueDate { get; set; }
 
-        public static void DisplayLibrary(List<Book> library)
+       
+
+        public void DisplayBook()
         {
-
-            foreach (var book in library)
-            {
-                DisplayBook(book);
-            }
-        }
-
-        public static void DisplayBook(Book book)
-        {
-            Console.WriteLine($"Title: {book.Title}, Author: {book.Author}, Book Status: {book.Status})");
-        }
-
-        public static string SearchByAuthor(List<Book> library)
-        {
-            Console.Write("Enter an author: ");
-            string userInput = Console.ReadLine();
-
-            foreach (var book in library)
-            {
-                if (book.Author.ToLower() == userInput.ToLower())
-                {
-                    DisplayBook(book);
-                }
-            }
-            return "";//Fix me
-        }
-
-        public static string SearchByTitle(List<Book> books)
-        {
-            Console.Write("Enter a title keyword: ");
-            string userInput = Console.ReadLine();
-
-            for (int i = 0; i < books.Count; i++)
-            {
-                //split each title by a " " to seperate by word
-                if (true  /*use contains function to search titles by user input*/)
-                {
-                    Console.WriteLine(books[i]);
-                }
-            }
-            return ""; //FIX
-        }
-
-        public static string ReturnBook(List<Book> books)
-        {
-            return ""; //FIX
+            Console.WriteLine($"Title: {Title}, Author: {Author}, Book Status: {Status})");
         }
     }
 }
