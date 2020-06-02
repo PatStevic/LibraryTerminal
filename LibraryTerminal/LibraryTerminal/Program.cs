@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MidtermKyle;
+using System;
 using System.Collections.Generic;
 
 namespace LibraryTerminal
@@ -8,6 +9,9 @@ namespace LibraryTerminal
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to our library!");
+
+            var library = new Library();
+            library.DisplayLibrary();
 
         }
         /*  Welcome the user to library
