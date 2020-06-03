@@ -15,6 +15,5 @@ namespace LibraryTerminal
         TheEndOfOurStory = 10,
         FirstFieldGuideAmphibians = 11,
         StrengthsBasedLeadership = 12,
-        EverythingHappensForAReason = 13
     }
 }
