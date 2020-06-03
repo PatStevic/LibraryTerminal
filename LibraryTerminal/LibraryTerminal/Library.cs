@@ -49,7 +49,7 @@ namespace MidtermKyle
             return ""; //FIX
         }
 
-        public string SearchByAuthor()
+        public Book SearchByAuthor()
         {
             Console.Write("Enter an author: ");
             string userInput = Console.ReadLine();
@@ -74,7 +74,7 @@ namespace MidtermKyle
                     userResponse = Console.ReadLine().ToLower();
                 }
             } while (userResponse == "y");
-            return; // We need to fix this")
+            return correctBook; // We need to fix this
         }
 
 
