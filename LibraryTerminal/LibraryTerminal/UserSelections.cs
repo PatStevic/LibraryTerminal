@@ -10,6 +10,27 @@ namespace LibraryTerminal
         {
         }
 
+        public string MainMenuCheckOut_CheckIn()
+        {
+            string checkInCheckOutUserInput;
+
+            do
+            {
+                Console.WriteLine("Would you like to check in a book or check a book out? Enter the corresponding number:\n" +
+                                "(1) Check In / Return \n" +
+                                "(2) Check Out\n");
+
+                checkInCheckOutUserInput = Console.ReadLine();
+
+                if (!(checkInCheckOutUserInput == "1" || checkInCheckOutUserInput == "2"))
+                {
+                    Console.WriteLine("\nERROR: Please enter the a valid selection (1 or 2\n");
+                }
+
+            } while (!(checkInCheckOutUserInput == "1" || checkInCheckOutUserInput == "2"));
+
+            return checkInCheckOutUserInput;
+        }
         public string MainMenuDiplayAndSearchOptions()
         {
             string searchOrDisplayUserInput;
@@ -31,12 +52,5 @@ namespace LibraryTerminal
             return searchOrDisplayUserInput;
         }
 
-        public string MainMenuCheckOut_CheckIn()
-        {
-            string checkInCheckOutUserInput; 
-
-
-        }
     }
-
 }

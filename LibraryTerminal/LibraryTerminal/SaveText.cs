@@ -7,7 +7,7 @@ namespace LibraryTerminal
 {
     class SaveText
     {
-        static void Main(string[] args)
+        static void Main2(string[] args)
         {
             String filePath = "LibraryList.txt";
 

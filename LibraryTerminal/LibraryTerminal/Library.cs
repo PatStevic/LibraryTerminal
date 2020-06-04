@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
-namespace MidtermKyle
+namespace LibraryTerminal
 {
     public class Library
     {
@@ -27,61 +28,118 @@ namespace MidtermKyle
 
         public void DisplayLibrary()
         {
+            DisplayBooks(_bookLibrary);
+        }
+
+        public List<Book> SearchByTitle()
+        {
+            Console.Write("Enter a book Title: ");
+            string userInputTitle = Console.ReadLine();
+
+            var matchingBooks = new List<Book>();
+
             foreach (var book in _bookLibrary)
             {
-                book.DisplayBook();
-            }
-        }
-
-        public string SearchByTitle()
-        {
-            Console.Write("Enter a title keyword: ");
-            string userInput = Console.ReadLine();
-
-            for (int i = 0; i < _bookLibrary.Count; i++)
-            {
-                //split each title by a " " to seperate by word
-                if (true  /*use contains function to search titles by user input*/)
+                if (book.Title.Contains(userInputTitle))
                 {
-                    Console.WriteLine(_bookLibrary[i]);
+                    matchingBooks.Add(book);
                 }
             }
-            return ""; //FIX
+
+            DisplayBooks(matchingBooks);
+            /// Now ask the user to select a book
+
+            return matchingBooks;
+
+            //string userResponseByTitle = "n";
+            //Book correctBook = null;
+            //bool bookFound = false;
+            //do
+            //{
+            //    foreach (Book book in _bookLibrary)
+            //    {
+            //        if (book.Title.Contains(userInputTitle))
+            //        {
+            //            correctBook = book;
+            //            bookFound = true;
+            //            break;
+            //        }
+            //    }
+            //    if (!bookFound)
+            //    {
+            //        Console.WriteLine("Book not found. Would you like to try again, y/n?");
+            //        userResponseByTitle = Console.ReadLine().ToLower();
+            //    }
+            //} while (userResponseByTitle == "y");
+            //return correctBook;
         }
 
-        public Book SearchByAuthor()
+        public List<Book> SearchByAuthor()
         {
             Console.Write("Enter an author: ");
-            string userInput = Console.ReadLine();
-            
-            string userResponse = "n";
-            Book correctBook;
-            bool bookFound = false;
-            do
+            string userInputAuthor = Console.ReadLine();
+
+           //var matchingBooks = _bookLibrary.Where(book => book.Author.Contains(userInputAuthor)).ToList();
+
+            // matchingBooks is now an List containing all books from the library where author name contains userInput
+
+            // var cnt = 1;
+            //foreach (var book in matchingBooks)
+            // {
+            //     Console.WriteLine($"Enter {cnt} for {book.Title}");
+            //     cnt++;
+            // }
+
+            var matchingBooks = new List<Book>();
+
+            foreach (var book in _bookLibrary)
             {
-                foreach (Book book in _bookLibrary)
+                if(book.Author.Contains(userInputAuthor))
                 {
-                    if (book.Author.Contains(userInput))
-                    {
-                        correctBook = book;
-                        bookFound = true;
-                        break;
-                    }
+                    matchingBooks.Add(book);
                 }
-                if (!bookFound)
-                {
-                    Console.WriteLine("Book not found. Would you like to try again, y/n?");
-                    userResponse = Console.ReadLine().ToLower();
-                }
-            } while (userResponse == "y");
-            return correctBook; // We need to fix this
+            }
+
+            DisplayBooks(matchingBooks);
+            /// Now ask the user to select a book
+
+            return matchingBooks;
+
+            //string userResponse = "n";
+            //Book correctBook = null;
+            //bool bookFound = false;
+            //do
+            //{
+            //    foreach (Book book in _bookLibrary)
+            //    {
+            //        if (book.Author.Contains(userInputAuthor))
+            //        {
+            //            correctBook = book; 
+            //            bookFound = true;
+            //            break;
+            //        }
+            //    }
+            //    if (!bookFound)
+            //    {
+            //        Console.WriteLine("Book not found. Would you like to try again, y/n?");
+            //        userResponse = Console.ReadLine().ToLower();
+            //    }
+            //} while (userResponse == "y");
+            //return correctBook;
         }
-
-
 
         public string ReturnBook()
         {
             return ""; //FIX
+        }
+
+        private void DisplayBooks(List<Book> books)
+        {
+            for (int i = 0; i < books.Count; i++)
+            {
+                Console.Write($"{i + 1} - ");
+                books[i].DisplayBook();
+            }
         }
     }
 }

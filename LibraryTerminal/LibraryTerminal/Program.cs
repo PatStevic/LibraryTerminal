@@ -1,6 +1,4 @@
-﻿using MidtermKyle;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace LibraryTerminal
 {
@@ -8,55 +6,58 @@ namespace LibraryTerminal
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to our library!");
-
+            int userWouldLikeToCheckInOrCheckOut;
+            bool userWouldLikeToCheckInOrCheckOutIsValid;
             var library = new Library();
-            library.DisplayLibrary();
+            //library.DisplayLibrary();
+            //library.SearchByAuthor();
 
+            do
+            {
+                Console.WriteLine("Welcome to the Grand Circus Library!\n Would you like to check in a book or check a book out? Please enter 1 or 2:\n (1)Check In\n (2)Check Out");
+                userWouldLikeToCheckInOrCheckOutIsValid = int.TryParse(Console.ReadLine(), out userWouldLikeToCheckInOrCheckOut);
+
+                if (!userWouldLikeToCheckInOrCheckOutIsValid || userWouldLikeToCheckInOrCheckOut < 1 || userWouldLikeToCheckInOrCheckOut > 2)
+                {
+                    Console.WriteLine($"You have entered in an invalid selection. Please enter in 1 or 2.");
+                }
+            } while (!userWouldLikeToCheckInOrCheckOutIsValid || userWouldLikeToCheckInOrCheckOut < 1 || userWouldLikeToCheckInOrCheckOut > 2);
+
+
+            int userIsSearchingLibraryBy;
+            bool userIsSearchingLibraryByIsValid;
+
+            if (userWouldLikeToCheckInOrCheckOut == 1)
+            {
+                Console.WriteLine($"Which book would you like to return?\n");
+                //display list of books that are checked out.
+                //methood to check in book. 
+                //break (in a do while loop)... Would you like to return another book, go back to main menu, or exit ;
+            }
+
+
+            if (userWouldLikeToCheckInOrCheckOut == 2)
+            {
+                do
+                {
+                    Console.WriteLine($"Would you like to search the library by title, author, or see full list of books? Please enter 1, 2 or 3:\n(1)Full list of books\n(2)Search By Author\n(3)Search By Title\n");
+                    userIsSearchingLibraryByIsValid = int.TryParse(Console.ReadLine(), out userIsSearchingLibraryBy);
+
+                    if (userIsSearchingLibraryBy == 1)
+                    {
+                        library.DisplayLibrary();
+                    }
+
+                    if (userIsSearchingLibraryBy == 2)
+                    {
+                    }
+
+                    if (userIsSearchingLibraryBy == 3)
+                    {
+                    }
+
+                } while (!userIsSearchingLibraryByIsValid || userIsSearchingLibraryBy < 1 || userIsSearchingLibraryBy > 3);
+            }
         }
-        /*  Welcome the user to library
-         *  
-         *  Ask user which method they would like to use in program
-         *  Methods:
-         *  -display entire list of books neatley (1)
-         *      select a book
-         *          -display whether checked out or not
-         *              if checked in, offer option to checkout and show due date
-         *                  -save file
-         *              if checked out, display due date
-         *  -search for book by author(2)
-         *       -display whether checked out or not
-         *              if checked in, offer option to checkout and show due date
-         *                  -save file
-         *              if checked out, display due date
-         *  -search for book by title keyword
-         *       -display whether checked out or not
-         *              if checked in, offer option to checkout and show due date
-         *                  -save file
-         *              if checked out, display due date   
-         *  -return a book
-         *      -enter book title then confirm if user wants to return
-         *          -save file
-         *  
-
-        */
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace MidtermKyle
+namespace LibraryTerminal
 {
     public class Book
     {
@@ -16,6 +16,7 @@ namespace MidtermKyle
 
         // var book1 = new Book("", "", 12);
         //book1.Title
+        //possibly later create a unique id to identify book
 
         public string Title { get; set; }
         public string Author { get; set; }
@@ -27,7 +28,7 @@ namespace MidtermKyle
 
         public void DisplayBook()
         {
-            Console.WriteLine($"Title: {Title}, Author: {Author}, Book Status: {Status})");
+            Console.WriteLine($"Title: {Title}, Author: {Author}, Book Status: {Status}");
         }
     }
 }
