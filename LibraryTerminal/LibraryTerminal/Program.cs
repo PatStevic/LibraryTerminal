@@ -9,6 +9,7 @@ namespace LibraryTerminal
             int userWouldLikeToCheckInOrCheckOut;
             bool userWouldLikeToCheckInOrCheckOutIsValid;
             var library = new Library();
+            library.Load("");
             //library.DisplayLibrary();
             //library.SearchByAuthor();
 
@@ -60,6 +61,8 @@ namespace LibraryTerminal
 
                 } while (!userIsSearchingLibraryByIsValid || userIsSearchingLibraryBy < 1 || userIsSearchingLibraryBy > 3);
             }
+
+            library.Save("");
         }
     }
 }

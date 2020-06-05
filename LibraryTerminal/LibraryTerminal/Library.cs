@@ -12,18 +12,36 @@ namespace LibraryTerminal
         public Library()
         {
             _bookLibrary = new List<Book>();
-            _bookLibrary.Add(new Book("Thrifty Years", "Meijer"));
-            _bookLibrary.Add(new Book("Astrophysics For People In a Hurry", "DeGrasse Tyson"));
-            _bookLibrary.Add(new Book("The Tanning of America", "Stoute"));
-            _bookLibrary.Add(new Book("How To Win Friends and Influence People", "Carnegie"));
-            _bookLibrary.Add(new Book("The Siren", "Reisz"));
-            _bookLibrary.Add(new Book("A Game of Thornes", "Martin"));
-            _bookLibrary.Add(new Book("The Bit Picture", "Carroll"));
-            _bookLibrary.Add(new Book("Gabriel's Inferno", "Reynard"));
-            _bookLibrary.Add(new Book("The End of Our Story", "Haston"));
-            _bookLibrary.Add(new Book("First Field Guide Amphibians", "Cassie"));
-            _bookLibrary.Add(new Book("Strengths Based Leadership", "Rath"));
-            _bookLibrary.Add(new Book("Everything Happens For A Reason", "Kirshenbaum"));
+            //_bookLibrary.Add(new Book("Thrifty Years", "Meijer"));
+            //_bookLibrary.Add(new Book("Astrophysics For People In a Hurry", "DeGrasse Tyson"));
+            //_bookLibrary.Add(new Book("The Tanning of America", "Stoute"));
+            //_bookLibrary.Add(new Book("How To Win Friends and Influence People", "Carnegie"));
+            //_bookLibrary.Add(new Book("The Siren", "Reisz"));
+            //_bookLibrary.Add(new Book("A Game of Thornes", "Martin"));
+            //_bookLibrary.Add(new Book("The Bit Picture", "Carroll"));
+            //_bookLibrary.Add(new Book("Gabriel's Inferno", "Reynard"));
+            //_bookLibrary.Add(new Book("The End of Our Story", "Haston"));
+            //_bookLibrary.Add(new Book("First Field Guide Amphibians", "Cassie"));
+            //_bookLibrary.Add(new Book("Strengths Based Leadership", "Rath"));
+            //_bookLibrary.Add(new Book("Everything Happens For A Reason", "Kirshenbaum"));
+        }
+
+        public void Save(string fileName)
+        {
+            // save _bookLibrary here to file
+        }
+
+        public void Load(string fileName)
+        {
+            // .csv (comma delimited)
+            // Thrifty Years,Meijer,1,1/2/2020
+            // ...
+
+            // .txt (pipe delimited)
+            // Thrifty Years|Meijer|1|1/2/2020
+            // ...
+
+            // load _bookLibrary here from file
         }
 
         public void DisplayLibrary()

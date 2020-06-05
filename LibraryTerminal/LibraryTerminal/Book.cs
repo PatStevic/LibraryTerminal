@@ -16,6 +16,7 @@ namespace LibraryTerminal
             Title = title;
             Author = author;
             Status = BookStatus.CheckedIn;
+            DueDate = DateTime.MinValue;
         }
 
         // var book1 = new Book("", "", 12);
@@ -25,14 +26,36 @@ namespace LibraryTerminal
         public string Title { get; set; }
         public string Author { get; set; }
         public BookStatus Status { get; set; }
-        public DateTime CheckOutDate { get; set; }
         public DateTime DueDate { get; set; }
 
-       
+
+        public void BookCheckIn(Book book)
+        {
+            book.Status = BookStatus.CheckedIn;
+            //save text file
+        }
+
+        public void BookCheckOut(Book book)
+        {
+            book.Status = BookStatus.CheckedOut;
+
+            DateTime DueDate = DateTime.UtcNow.AddDays(14);
+            //save text file
+
+            Console.WriteLine($"The current date is {DueDate}");
+        }
+
 
         public void DisplayBook()
         {
-            Console.WriteLine($"Title: {Title}, Author: {Author}, Book Status: {Status}");
+
+            if (Status == BookStatus.CheckedIn)
+                Console.WriteLine($"Title:{Title}\nAuthor:{Author},\nBook Status:{Status}\nBook Due Date: n/a");
+
+            if (Status == BookStatus.CheckedOut)
+
+                Console.WriteLine($"Title:{Title}\nAuthor:{Author},\nBook Status:{Status}\nBook Due Date:{DueDate}");
         }
     }
 }
+
