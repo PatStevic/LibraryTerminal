@@ -31,101 +31,93 @@ namespace LibraryTerminal
             DisplayBooks(_bookLibrary);
         }
 
-        public List<Book> SearchByTitle()
+        public Book SearchByTitle()
         {
-            Console.Write("Enter a book Title: ");
-            string userInputTitle = Console.ReadLine();
-
-            var matchingBooks = new List<Book>();
-
-            foreach (var book in _bookLibrary)
+            string userWantsToContinue = "n";
+            do
             {
-                if (book.Title.Contains(userInputTitle))
+                Console.Write("Enter a title keyword: ");
+                string userInput = Console.ReadLine();
+
+                List<Book> bookByTitle = new List<Book>();
+
+                foreach (Book book in _bookLibrary)
                 {
-                    matchingBooks.Add(book);
+                    if (book.Title.Contains(userInput, StringComparison.OrdinalIgnoreCase))
+                    {
+                        bookByTitle.Add(book);
+                    }
                 }
-            }
+                if (bookByTitle.Count == 0)
+                {
+                    Console.WriteLine("Book not found. Would you like to try again, y/n?");
+                    userWantsToContinue = Console.ReadLine().ToLower();
+                }
+                else if (bookByTitle.Count == 1)
+                {
+                    return bookByTitle[0];
+                }
+                else if (bookByTitle.Count > 1)
+                {
+                    DisplayBooks(bookByTitle);
+                    Console.WriteLine("Which book would you like to choose? (Please enter corresponding number)");
+                    var userSelectBook = Console.ReadLine().ToLower();
 
-            DisplayBooks(matchingBooks);
-            /// Now ask the user to select a book
+                    var isBookValid = int.TryParse(userSelectBook, out var correctBook);
+                    if (isBookValid && correctBook < bookByTitle.Count)
+                    {
+                        return bookByTitle[correctBook - 1];
+                    }
 
-            return matchingBooks;
-
-            //string userResponseByTitle = "n";
-            //Book correctBook = null;
-            //bool bookFound = false;
-            //do
-            //{
-            //    foreach (Book book in _bookLibrary)
-            //    {
-            //        if (book.Title.Contains(userInputTitle))
-            //        {
-            //            correctBook = book;
-            //            bookFound = true;
-            //            break;
-            //        }
-            //    }
-            //    if (!bookFound)
-            //    {
-            //        Console.WriteLine("Book not found. Would you like to try again, y/n?");
-            //        userResponseByTitle = Console.ReadLine().ToLower();
-            //    }
-            //} while (userResponseByTitle == "y");
-            //return correctBook;
+                    Console.WriteLine("Invalid entry!");
+                    userWantsToContinue = "y";
+                }
+            } while (userWantsToContinue == "y");
+            return null;
         }
 
-        public List<Book> SearchByAuthor()
+        public Book SearchByAuthor()
         {
-            Console.Write("Enter an author: ");
-            string userInputAuthor = Console.ReadLine();
-
-           //var matchingBooks = _bookLibrary.Where(book => book.Author.Contains(userInputAuthor)).ToList();
-
-            // matchingBooks is now an List containing all books from the library where author name contains userInput
-
-            // var cnt = 1;
-            //foreach (var book in matchingBooks)
-            // {
-            //     Console.WriteLine($"Enter {cnt} for {book.Title}");
-            //     cnt++;
-            // }
-
-            var matchingBooks = new List<Book>();
-
-            foreach (var book in _bookLibrary)
+            string userWantsToContinue = "n";
+            do
             {
-                if(book.Author.Contains(userInputAuthor))
+                Console.Write("Enter the author's last name: ");
+                string userInput = Console.ReadLine();
+
+                List<Book> bookByAuthor = new List<Book>();
+                foreach (Book book in _bookLibrary)
                 {
-                    matchingBooks.Add(book);
+                    if (book.Author.Contains(userInput, StringComparison.OrdinalIgnoreCase))
+                    {
+                        bookByAuthor.Add(book);
+                    }
                 }
-            }
+                if (bookByAuthor.Count == 0)
+                {
+                    Console.WriteLine("Book not found. Would you like to try again, y/n?");
+                    userWantsToContinue = Console.ReadLine().ToLower();
+                }
+                else if (bookByAuthor.Count == 1)
+                {
+                    return bookByAuthor[0];
+                }
+                else if (bookByAuthor.Count > 1)
+                {
+                    DisplayBooks(bookByAuthor);
+                    Console.WriteLine("Which book would you like to choose? (Please enter corresponding number)");
+                    var userSelectBook = Console.ReadLine();
 
-            DisplayBooks(matchingBooks);
-            /// Now ask the user to select a book
+                    var isBookValid = int.TryParse(userSelectBook, out var correctBook);
+                    if (isBookValid && correctBook < bookByAuthor.Count)
+                    {
+                        return bookByAuthor[correctBook - 1];
+                    }
 
-            return matchingBooks;
-
-            //string userResponse = "n";
-            //Book correctBook = null;
-            //bool bookFound = false;
-            //do
-            //{
-            //    foreach (Book book in _bookLibrary)
-            //    {
-            //        if (book.Author.Contains(userInputAuthor))
-            //        {
-            //            correctBook = book; 
-            //            bookFound = true;
-            //            break;
-            //        }
-            //    }
-            //    if (!bookFound)
-            //    {
-            //        Console.WriteLine("Book not found. Would you like to try again, y/n?");
-            //        userResponse = Console.ReadLine().ToLower();
-            //    }
-            //} while (userResponse == "y");
-            //return correctBook;
+                    Console.WriteLine("Invalid entry!");
+                    userWantsToContinue = "y";
+                }
+            } while (userWantsToContinue == "y");
+            return null;
         }
 
         public string ReturnBook()
@@ -146,4 +138,3 @@ namespace LibraryTerminal
 
 
 
-   

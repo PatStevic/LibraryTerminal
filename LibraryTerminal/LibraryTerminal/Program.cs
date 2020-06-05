@@ -12,6 +12,8 @@ namespace LibraryTerminal
             //library.DisplayLibrary();
             //library.SearchByAuthor();
 
+            var foundBook = library.SearchByTitle();
+
             do
             {
                 Console.WriteLine("Welcome to the Grand Circus Library!\n Would you like to check in a book or check a book out? Please enter 1 or 2:\n (1)Check In\n (2)Check Out");
