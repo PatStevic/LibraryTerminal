@@ -13,7 +13,6 @@ namespace LibraryTerminal
 
             WritetoFile(filePath);
             ReadFromFile(filePath);
-
             ReadFromFile(filePath); //static method do not have to create an object
         }
 
