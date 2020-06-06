@@ -61,11 +61,19 @@ namespace LibraryTerminal
                 }
                 if (bookByTitle.Count == 0)
                 {
-                    Console.WriteLine("Book not found. Would you like to try again, y/n?");
-                    userWantsToContinue = Console.ReadLine().ToLower();
+                    do
+                    {
+                        Console.WriteLine("Book not found. Would you like to try again, y/n?");
+                        userWantsToContinue = Console.ReadLine().ToLower();
+                        if (userWantsToContinue != "y" || userWantsToContinue != "n")
+                        {
+                            Console.WriteLine("Invalid entry. Please enter y/n");
+                        }
+                    } while (userWantsToContinue != "y" || userWantsToContinue != "n");
                 }
                 else if (bookByTitle.Count == 1)
                 {
+                    Console.WriteLine($"{bookByTitle[0].Title} by {bookByTitle[0].Author}");
                     return bookByTitle[0];
                 }
                 else if (bookByTitle.Count > 1)
@@ -105,11 +113,19 @@ namespace LibraryTerminal
                 }
                 if (bookByAuthor.Count == 0)
                 {
-                    Console.WriteLine("Book not found. Would you like to try again, y/n?");
-                    userWantsToContinue = Console.ReadLine().ToLower();
+                    do
+                    {
+                        Console.WriteLine("Book not found. Would you like to try again, y/n?");
+                        userWantsToContinue = Console.ReadLine().ToLower();
+                        if (userWantsToContinue != "y" || userWantsToContinue != "n")
+                        {
+                            Console.WriteLine("Invalid entry. Please enter y/n");
+                        }
+                    } while (userWantsToContinue != "y" || userWantsToContinue != "n");
                 }
                 else if (bookByAuthor.Count == 1)
                 {
+                    Console.WriteLine($"{bookByAuthor[0].Title} by {bookByAuthor[0].Author}");
                     return bookByAuthor[0];
                 }
                 else if (bookByAuthor.Count > 1)
@@ -119,6 +135,7 @@ namespace LibraryTerminal
                     var userSelectBook = Console.ReadLine();
 
                     var isBookValid = int.TryParse(userSelectBook, out var correctBook);
+
                     if (isBookValid && correctBook < bookByAuthor.Count)
                     {
                         return bookByAuthor[correctBook - 1];
