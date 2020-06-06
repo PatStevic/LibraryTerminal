@@ -9,7 +9,6 @@ namespace LibraryTerminal
             int userWouldLikeToCheckInOrCheckOut;
             bool userWouldLikeToCheckInOrCheckOutIsValid;
             var library = new Library();
-            library.Load("");
             //library.DisplayLibrary();
             //library.SearchByAuthor();
 
@@ -17,14 +16,14 @@ namespace LibraryTerminal
 
             do
             {
-                Console.WriteLine("Welcome to the Grand Circus Library!\n Would you like to check in a book or check a book out? Please enter 1 or 2:\n (1)Check In\n (2)Check Out");
+                Console.WriteLine("Welcome to the Grand Circus Library!\n Would you like to check in a book, check out a book, or see the full library? Please enter 1, 2, or 3:\n (1)Check In\n (2)Check Out\n (3)View library");
                 userWouldLikeToCheckInOrCheckOutIsValid = int.TryParse(Console.ReadLine(), out userWouldLikeToCheckInOrCheckOut);
 
-                if (!userWouldLikeToCheckInOrCheckOutIsValid || userWouldLikeToCheckInOrCheckOut < 1 || userWouldLikeToCheckInOrCheckOut > 2)
+                if (!userWouldLikeToCheckInOrCheckOutIsValid || userWouldLikeToCheckInOrCheckOut < 1 || userWouldLikeToCheckInOrCheckOut > 3)
                 {
-                    Console.WriteLine($"You have entered in an invalid selection. Please enter in 1 or 2.");
+                    Console.WriteLine($"You have entered in an invalid selection. Please enter in 1, 2, or 3");
                 }
-            } while (!userWouldLikeToCheckInOrCheckOutIsValid || userWouldLikeToCheckInOrCheckOut < 1 || userWouldLikeToCheckInOrCheckOut > 2);
+            } while (!userWouldLikeToCheckInOrCheckOutIsValid || userWouldLikeToCheckInOrCheckOut < 1 || userWouldLikeToCheckInOrCheckOut > 3);
 
 
             int userIsSearchingLibraryBy;
@@ -55,14 +54,12 @@ namespace LibraryTerminal
                     {
                     }
 
-                    if (userIsSearchingLibraryBy == 3)
-                    {
-                    }
-
                 } while (!userIsSearchingLibraryByIsValid || userIsSearchingLibraryBy < 1 || userIsSearchingLibraryBy > 3);
             }
-
-            library.Save("");
+            if (userWouldLikeToCheckInOrCheckOut == 3)
+            {
+                library.DisplayLibrary();
+            }
         }
     }
 }
