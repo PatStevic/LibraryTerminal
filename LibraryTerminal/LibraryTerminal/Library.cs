@@ -8,6 +8,8 @@ namespace LibraryTerminal
     public class Library
     {
         private List<Book> _bookLibrary;
+        public List<Book> _checkedOutBooks;
+        public List<Book> _checkedInBooks;
 
         public Library()
         {
@@ -26,9 +28,14 @@ namespace LibraryTerminal
             _bookLibrary.Add(new Book("Everything Happens For A Reason", "Kirshenbaum"));
         }
 
-        public List<Book> _checkedOutBooks;
-
-        public List<Book> _checkedInBooks;
+        private void DisplayBooks(List<Book> books)
+        {
+            for (int i = 0; i < books.Count; i++)
+            {
+                Console.Write($"{i + 1} - ");
+                books[i].DisplayBook();
+            }
+        }
 
         public void DisplayLibrary()
         {
@@ -172,15 +179,6 @@ namespace LibraryTerminal
             else if (userDecision == "y" || book.Status == BookStatus.CheckedOut)
             {
                 Console.WriteLine($"Sorry, {book.Title} is already checked out");
-            }
-        }
-
-        private void DisplayBooks(List<Book> books)
-        {
-            for (int i = 0; i < books.Count; i++)
-            {
-                Console.Write($"{i + 1} - ");
-                books[i].DisplayBook();
             }
         }
     }

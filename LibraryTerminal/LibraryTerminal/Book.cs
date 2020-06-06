@@ -29,22 +29,6 @@ namespace LibraryTerminal
         public DateTime DueDate { get; set; }
 
 
-        public void BookCheckIn(Book book)
-        {
-            book.Status = BookStatus.CheckedIn;
-            //save text file
-        }
-
-        public void BookCheckOut(Book book)
-        {
-            book.Status = BookStatus.CheckedOut;
-
-            DateTime DueDate = DateTime.UtcNow.AddDays(14);
-            //save text file
-
-            Console.WriteLine($"The current date is {DueDate}");
-        }
-
 
         public void DisplayBook()
         {
