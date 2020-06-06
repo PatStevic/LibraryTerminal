@@ -1,22 +1,22 @@
 ﻿<Properties StartupConfiguration="{43B32A2A-98A2-49F6-9C18-4C1B21F1143D}|Default">
   <MonoDevelop.Ide.ItemProperties.LibraryTerminal PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="LibraryTerminal/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="LibraryTerminal/Book.cs">
     <Files>
-      <File FileName="LibraryTerminal/Book.cs" Line="39" Column="1" />
-      <File FileName="LibraryTerminal/BookStatus.cs" Line="12" Column="2" />
-      <File FileName="LibraryTerminal/Program.cs" Line="18" Column="1" />
-      <File FileName="LibraryTerminal/Library.cs" Line="90" Column="91" />
+      <File FileName="LibraryTerminal/Book.cs" Line="12" Column="10" />
+      <File FileName="LibraryTerminal/BookStatus.cs" />
+      <File FileName="LibraryTerminal/Program.cs" Line="66" Column="1" />
+      <File FileName="LibraryTerminal/Library.cs" Line="170" Column="97" />
       <File FileName="LibraryTerminal/MenuOptions.cs" />
       <File FileName="LibraryTerminal/BookEnum.cs" />
       <File FileName="LibraryTerminal/SaveText.cs" />
-      <File FileName="LibraryTerminal/UserSelections.cs" Line="1" Column="1" />
+      <File FileName="LibraryTerminal/UserSelections.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="LibraryTerminal" expanded="True">
             <Node name="LibraryTerminal" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="Book.cs" selected="True" />
             </Node>
           </Node>
         </State>
