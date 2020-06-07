@@ -127,6 +127,7 @@ namespace LibraryTerminal
                 {
                     Console.WriteLine($"{bookByAuthor[0].Title} by {bookByAuthor[0].Author}");
                     return bookByAuthor[0];
+                    
                 }
                 else if (bookByAuthor.Count > 1)
                 {
@@ -152,6 +153,8 @@ namespace LibraryTerminal
         {
             string userDecision;
             bool valid;
+
+
             do
             {
                 Console.WriteLine($"Would you like to check in {book.Title}? (y/n)");

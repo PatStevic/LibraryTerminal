@@ -36,7 +36,8 @@ namespace LibraryTerminal
                 {
                     do
                     {
-                        bool userBookFOund;
+                        Book correctBook = null; 
+
 
                         Console.WriteLine($"\nLets return the book. Would you like to return the book by Author or by Title? Please enter 1 or 2 :\n(1)Search By Author\n(2)Search By Title\n");
                         userIsSearchingLibraryByAuthorOrTitleIsValid = int.TryParse(Console.ReadLine(), out userIsSearchingLibraryByAuthorTitleOrFullList);
@@ -44,15 +45,15 @@ namespace LibraryTerminal
 
                         if (userIsSearchingLibraryByAuthorTitleOrFullList == 1)
                         {
-                            library.SearchByAuthor();
-                            //library.CheckInBook();
+                            correctBook = library.SearchByAuthor();
+                            library.CheckInBook(correctBook);
 
                         }
 
                         if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
                         {
                             library.SearchByTitle();
-                            //library.CheckInBook();
+                            library.CheckOutBook(correctBook);
                         }
 
 
@@ -65,6 +66,8 @@ namespace LibraryTerminal
                     userIsSearchingLibraryByAuthorOrTitleIsValid = int.TryParse(Console.ReadLine(), out userIsSearchingLibraryByAuthorTitleOrFullList);
                     do
                     {
+                        Book correctBook = null;
+
                         if (userIsSearchingLibraryByAuthorTitleOrFullList == 1)
                         {
                             library.DisplayLibrary();
@@ -75,12 +78,14 @@ namespace LibraryTerminal
                         if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
                         {
                             library.SearchByAuthor();
+                            library.CheckInBook(correctBook);
 
                         }
 
                         if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
                         {
                             library.SearchByTitle();
+                            library.CheckOutBook(correctBook);
 
                         }
 
