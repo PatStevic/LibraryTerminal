@@ -15,7 +15,6 @@ namespace LibraryTerminal
             bool userIsSearchingLibraryByAuthorOrTitleIsValid;
             //library.DisplayLibrary();
             //library.SearchByAuthor();
-            var testing = System.IO.Path.GetFullPath(@"..\..\..\..\");
 
             do
             {
@@ -37,7 +36,7 @@ namespace LibraryTerminal
                 {
                     do
                     {
-                        Book correctBook = null; 
+                        Book correctBook = null;
 
 
                         Console.WriteLine($"\nLets return the book. Would you like to return the book by Author or by Title? Please enter 1 or 2 :\n(1)Search By Author\n(2)Search By Title\n");
@@ -48,6 +47,7 @@ namespace LibraryTerminal
                         {
                             correctBook = library.SearchByAuthor();
                             library.CheckInBook(correctBook);
+
                         }
 
                         else if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
@@ -81,11 +81,7 @@ namespace LibraryTerminal
                             library.CheckInBook(correctBook);
                         }
 
-<<<<<<< HEAD
-                        if (userIsSearchingLibraryByAuthorTitleOrFullList == 3)
-=======
                         else if (userIsSearchingLibraryByAuthorTitleOrFullList == 3)
->>>>>>> ed87e0602ab131909d06ad4c5c0fd4b020c8bc9b
                         {
                             correctBook = library.SearchByTitle();
                             library.CheckOutBook(correctBook);
@@ -114,5 +110,3 @@ namespace LibraryTerminal
         }
     }
 }
-
-
