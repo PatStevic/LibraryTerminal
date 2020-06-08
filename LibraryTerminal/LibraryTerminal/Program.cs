@@ -13,8 +13,6 @@ namespace LibraryTerminal
             bool invalidSelection;
             int userIsSearchingLibraryByAuthorTitleOrFullList;
             bool userIsSearchingLibraryByAuthorOrTitleIsValid;
-            //library.DisplayLibrary();
-            //library.SearchByAuthor();
 
             do
             {
@@ -29,31 +27,31 @@ namespace LibraryTerminal
                     }
                 } while (!userWouldLikeToCheckInOrCheckOutIsValid || userWouldLikeToCheckInOrCheckOut < 1 || userWouldLikeToCheckInOrCheckOut > 3);
 
-
-
-
                 if (userWouldLikeToCheckInOrCheckOut == 1) // Returning a book - checking in
                 {
                     do
                     {
-                        Book correctBook = null;
-
+                        Book correctBook;
 
                         Console.WriteLine($"\nLets return the book. Would you like to return the book by Author or by Title? Please enter 1 or 2 :\n(1)Search By Author\n(2)Search By Title\n");
                         userIsSearchingLibraryByAuthorOrTitleIsValid = int.TryParse(Console.ReadLine(), out userIsSearchingLibraryByAuthorTitleOrFullList);
 
-
                         if (userIsSearchingLibraryByAuthorTitleOrFullList == 1)
                         {
                             correctBook = library.SearchByAuthor();
-                            library.CheckInBook(correctBook);
-
+                            if (correctBook != null)
+                            {
+                                library.CheckInBook(correctBook);
+                            }
                         }
 
                         else if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
                         {
                             correctBook = library.SearchByTitle();
-                            library.CheckOutBook(correctBook);
+                            if (correctBook != null)
+                            {
+                                library.CheckInBook(correctBook);
+                            }
                         }
 
 
@@ -66,7 +64,7 @@ namespace LibraryTerminal
                     userIsSearchingLibraryByAuthorOrTitleIsValid = int.TryParse(Console.ReadLine(), out userIsSearchingLibraryByAuthorTitleOrFullList);
                     do
                     {
-                        Book correctBook = null;
+                        Book correctBook;
 
                         if (userIsSearchingLibraryByAuthorTitleOrFullList == 1)
                         {
@@ -78,35 +76,41 @@ namespace LibraryTerminal
                         {
 
                             correctBook = library.SearchByAuthor();
-                            library.CheckInBook(correctBook);
-                        }
+                            if (correctBook != null)
+                            {
+                                library.CheckOutBook(correctBook);
+                            }
 
-                        else if (userIsSearchingLibraryByAuthorTitleOrFullList == 3)
+                            else if (userIsSearchingLibraryByAuthorTitleOrFullList == 3)
+                            {
+                                correctBook = library.SearchByTitle();
+                                if (correctBook != null)
+                                {
+                                    library.CheckOutBook(correctBook);
+                                }
+                            }
+
+                        } while (!userIsSearchingLibraryByAuthorOrTitleIsValid || userIsSearchingLibraryByAuthorTitleOrFullList < 1 || userIsSearchingLibraryByAuthorTitleOrFullList > 3) ;
+
+                        if (userWouldLikeToCheckInOrCheckOut == 3) //Looking at the Full list
                         {
-                            correctBook = library.SearchByTitle();
-                            library.CheckOutBook(correctBook);
+                            do
+                            {
+                                library.DisplayLibrary();
+                                Console.WriteLine($"\nWould you like to go back to the main Menu or exit? Please enter 1 or 2:\n(1)Main Menu\n(2)Exit\n");
+                                invalidSelection = int.TryParse(Console.ReadLine(), out returnToMainMenuOrExit);
 
+                                invalidSelection = returnToMainMenuOrExit != 1 && returnToMainMenuOrExit != 2;
+                            } while (invalidSelection);
+
+                            if (returnToMainMenuOrExit == 2)
+                            {
+                                Console.WriteLine($"\nThank you for coming to the GC Library, please come again.");
+                            }
                         }
-
-                    } while (!userIsSearchingLibraryByAuthorOrTitleIsValid || userIsSearchingLibraryByAuthorTitleOrFullList < 1 || userIsSearchingLibraryByAuthorTitleOrFullList > 3);
+                    } while (returnToMainMenuOrExit == 1);
                 }
-                if (userWouldLikeToCheckInOrCheckOut == 3) //Looking at the Full list
-                {
-                    do
-                    {
-                        library.DisplayLibrary();
-                        Console.WriteLine($"\nWould you like to go back to the main Menu or exit? Please enter 1 or 2:\n(1)Main Menu\n(2)Exit\n");
-                        invalidSelection = int.TryParse(Console.ReadLine(), out returnToMainMenuOrExit);
-
-                        invalidSelection = returnToMainMenuOrExit != 1 && returnToMainMenuOrExit != 2;
-                    } while (invalidSelection);
-
-                    if (returnToMainMenuOrExit == 2)
-                    {
-                        Console.WriteLine($"\nThank you for coming to the GC Library, please come again.");
-                    }
-                }
-            } while (returnToMainMenuOrExit == 1);
+            } while (true);
         }
     }
 }
