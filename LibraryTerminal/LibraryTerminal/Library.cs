@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace LibraryTerminal
 {
@@ -10,22 +11,27 @@ namespace LibraryTerminal
         private List<Book> _bookLibrary;
         public List<Book> _checkedOutBooks;
         public List<Book> _checkedInBooks;
-
+        static string filePath = System.IO.Path.GetFullPath(@"..\..\..\..\SavedBookLibrary.txt"); // "@" is a string literal
         public Library()
         {
-            _bookLibrary = new List<Book>();
-            _bookLibrary.Add(new Book("Thrifty Years", "Meijer"));
-            _bookLibrary.Add(new Book("Astrophysics For People In a Hurry", "DeGrasse Tyson"));
-            _bookLibrary.Add(new Book("The Tanning of America", "Stoute"));
-            _bookLibrary.Add(new Book("How To Win Friends and Influence People", "Carnegie"));
-            _bookLibrary.Add(new Book("The Siren", "Reisz"));
-            _bookLibrary.Add(new Book("A Game of Thornes", "Martin"));
-            _bookLibrary.Add(new Book("The Bit Picture", "Carroll"));
-            _bookLibrary.Add(new Book("Gabriel's Inferno", "Reynard"));
-            _bookLibrary.Add(new Book("The End of Our Story", "Haston"));
-            _bookLibrary.Add(new Book("First Field Guide Amphibians", "Cassie"));
-            _bookLibrary.Add(new Book("Strengths Based Leadership", "Rath"));
-            _bookLibrary.Add(new Book("Everything Happens For A Reason", "Kirshenbaum"));
+            if (!File.Exists(filePath))
+            {
+                _bookLibrary = new List<Book>();
+                _bookLibrary.Add(new Book("Thrifty Years", "Meijer"));
+                _bookLibrary.Add(new Book("Astrophysics For People In a Hurry", "DeGrasse Tyson"));
+                _bookLibrary.Add(new Book("The Tanning of America", "Stoute"));
+                _bookLibrary.Add(new Book("How To Win Friends and Influence People", "Carnegie"));
+                _bookLibrary.Add(new Book("The Siren", "Reisz"));
+                _bookLibrary.Add(new Book("A Game of Thornes", "Martin"));
+                _bookLibrary.Add(new Book("The Bit Picture", "Carroll"));
+                _bookLibrary.Add(new Book("Gabriel's Inferno", "Reynard"));
+                _bookLibrary.Add(new Book("The End of Our Story", "Haston"));
+                _bookLibrary.Add(new Book("First Field Guide Amphibians", "Cassie"));
+                _bookLibrary.Add(new Book("Strengths Based Leadership", "Rath"));
+                _bookLibrary.Add(new Book("Everything Happens For A Reason", "Kirshenbaum"));
+                BookRepository.WritetoFile(_bookLibrary);
+            }
+            _bookLibrary = BookRepository.ReadFromFile();
         }
 
         private void DisplayBooks(List<Book> books)
@@ -154,7 +160,6 @@ namespace LibraryTerminal
             string userDecision;
             bool valid;
 
-
             do
             {
                 Console.WriteLine($"Would you like to check in {book.Title}? (y/n)");
@@ -167,7 +172,7 @@ namespace LibraryTerminal
             if (userDecision == "y" || book.Status == BookStatus.CheckedOut)
             {
                 book.Status = BookStatus.CheckedIn;
-                //save file
+                BookRepository.WritetoFile(_bookLibrary);
                 Console.WriteLine($"{book.Title} has been checked back in");
             }
             else if (userDecision == "y" || book.Status == BookStatus.CheckedIn)
@@ -193,7 +198,8 @@ namespace LibraryTerminal
             {
                 book.Status = BookStatus.CheckedOut;
                 DateTime DueDate = DateTime.UtcNow.AddDays(14);
-                //save file
+
+                BookRepository.WritetoFile(_bookLibrary);
                 Console.WriteLine($"{book.Title} has been checked out. The due date is {book.DueDate}");
             }
             else if (userDecision == "y" || book.Status == BookStatus.CheckedOut)

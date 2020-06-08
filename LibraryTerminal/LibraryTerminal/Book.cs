@@ -7,10 +7,7 @@ namespace LibraryTerminal
 {
     public class Book
     {
-        public Book(List<Book> bookLibrary)
-        {
-        }
-
+        public Book() { }
         public Book(string title, string author)
         {
             Title = title;
