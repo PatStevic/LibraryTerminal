@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace LibraryTerminal
 {
@@ -10,22 +11,27 @@ namespace LibraryTerminal
         private List<Book> _bookLibrary;
         public List<Book> _checkedOutBooks;
         public List<Book> _checkedInBooks;
-
+        static string filePath = System.IO.Path.GetFullPath(@"..\..\..\..\SavedBookLibrary.txt"); // "@" is a string literal
         public Library()
         {
-            _bookLibrary = new List<Book>();
-            _bookLibrary.Add(new Book("Thrifty Years", "Meijer"));
-            _bookLibrary.Add(new Book("Astrophysics For People In a Hurry", "DeGrasse Tyson"));
-            _bookLibrary.Add(new Book("The Tanning of America", "Stoute"));
-            _bookLibrary.Add(new Book("How To Win Friends and Influence People", "Carnegie"));
-            _bookLibrary.Add(new Book("The Siren", "Reisz"));
-            _bookLibrary.Add(new Book("A Game of Thrones", "Martin"));
-            _bookLibrary.Add(new Book("The Bit Picture", "Carroll"));
-            _bookLibrary.Add(new Book("Gabriel's Inferno", "Reynard"));
-            _bookLibrary.Add(new Book("The End of Our Story", "Haston"));
-            _bookLibrary.Add(new Book("First Field Guide Amphibians", "Cassie"));
-            _bookLibrary.Add(new Book("Strengths Based Leadership", "Rath"));
-            _bookLibrary.Add(new Book("Everything Happens For A Reason", "Kirshenbaum"));
+            if (!File.Exists(filePath))
+            {
+                _bookLibrary = new List<Book>();
+                _bookLibrary.Add(new Book("Thrifty Years", "Meijer"));
+                _bookLibrary.Add(new Book("Astrophysics For People In a Hurry", "DeGrasse Tyson"));
+                _bookLibrary.Add(new Book("The Tanning of America", "Stoute"));
+                _bookLibrary.Add(new Book("How To Win Friends and Influence People", "Carnegie"));
+                _bookLibrary.Add(new Book("The Siren", "Reisz"));
+                _bookLibrary.Add(new Book("A Game of Thornes", "Martin"));
+                _bookLibrary.Add(new Book("The Bit Picture", "Carroll"));
+                _bookLibrary.Add(new Book("Gabriel's Inferno", "Reynard"));
+                _bookLibrary.Add(new Book("The End of Our Story", "Haston"));
+                _bookLibrary.Add(new Book("First Field Guide Amphibians", "Cassie"));
+                _bookLibrary.Add(new Book("Strengths Based Leadership", "Rath"));
+                _bookLibrary.Add(new Book("Everything Happens For A Reason", "Kirshenbaum"));
+                BookRepository.WritetoFile(_bookLibrary);
+            }
+            _bookLibrary = BookRepository.ReadFromFile();
         }
 
         private void DisplayBooks(List<Book> books)
@@ -63,7 +69,7 @@ namespace LibraryTerminal
                 {
                     do
                     {
-                        Console.Write("Book not found. Would you like to try again? (y/n): ");
+                        Console.WriteLine("Book not found. Would you like to try again, y/n?");
                         userWantsToContinue = Console.ReadLine().ToLower();
                         if (userWantsToContinue != "y" || userWantsToContinue != "n")
                         {
@@ -73,14 +79,13 @@ namespace LibraryTerminal
                 }
                 else if (bookByTitle.Count == 1)
                 {
-                    Console.WriteLine($"{bookByTitle[0].Title} by {bookByTitle[0].Author}\n");
+                    Console.WriteLine($"{bookByTitle[0].Title} by {bookByTitle[0].Author}");
                     return bookByTitle[0];
                 }
                 else if (bookByTitle.Count > 1)
                 {
                     DisplayBooks(bookByTitle);
-
-                    Console.Write("Which book would you like to choose? (Please enter corresponding number): ");
+                    Console.WriteLine("Which book would you like to choose? (Please enter corresponding number)");
                     var userSelectBook = Console.ReadLine().ToLower();
 
                     var isBookValid = int.TryParse(userSelectBook, out var correctBook);
@@ -89,7 +94,7 @@ namespace LibraryTerminal
                         return bookByTitle[correctBook - 1];
                     }
 
-                    Console.WriteLine("Invalid entry!\n");
+                    Console.WriteLine("Invalid entry!");
                     userWantsToContinue = "y";
                 }
             } while (userWantsToContinue == "y");
@@ -116,7 +121,7 @@ namespace LibraryTerminal
                 {
                     do
                     {
-                        Console.Write("Book not found. Would you like to try again? (y/n): ");
+                        Console.WriteLine("Book not found. Would you like to try again, y/n?");
                         userWantsToContinue = Console.ReadLine().ToLower();
                         if (userWantsToContinue != "y" || userWantsToContinue != "n")
                         {
@@ -126,14 +131,14 @@ namespace LibraryTerminal
                 }
                 else if (bookByAuthor.Count == 1)
                 {
-                    Console.WriteLine($"{bookByAuthor[0].Title} by {bookByAuthor[0].Author}\n");
+                    Console.WriteLine($"{bookByAuthor[0].Title} by {bookByAuthor[0].Author}");
                     return bookByAuthor[0];
+
                 }
                 else if (bookByAuthor.Count > 1)
                 {
                     DisplayBooks(bookByAuthor);
-
-                    Console.Write("Which book would you like to choose? (Please enter corresponding number): ");
+                    Console.WriteLine("Which book would you like to choose? (Please enter corresponding number)");
                     var userSelectBook = Console.ReadLine();
 
                     var isBookValid = int.TryParse(userSelectBook, out var correctBook);
@@ -143,7 +148,7 @@ namespace LibraryTerminal
                         return bookByAuthor[correctBook - 1];
                     }
 
-                    Console.WriteLine("Invalid entry!\n");
+                    Console.WriteLine("Invalid entry!");
                     userWantsToContinue = "y";
                 }
             } while (userWantsToContinue == "y");
@@ -157,7 +162,7 @@ namespace LibraryTerminal
 
             do
             {
-                Console.Write($"Would you like to check in {book.Title}? (y/n): ");
+                Console.WriteLine($"Would you like to check in {book.Title}? (y/n)");
                 userDecision = Console.ReadLine().ToLower();
                 valid = userDecision != "y" && userDecision != "n";
                 if (valid)
@@ -167,12 +172,12 @@ namespace LibraryTerminal
             if (userDecision == "y" || book.Status == BookStatus.CheckedOut)
             {
                 book.Status = BookStatus.CheckedIn;
-                //save file
-                Console.WriteLine($"{book.Title} has been checked back in\n");
+                BookRepository.WritetoFile(_bookLibrary);
+                Console.WriteLine($"{book.Title} has been checked back in");
             }
             else if (userDecision == "y" || book.Status == BookStatus.CheckedIn)
             {
-                Console.WriteLine($"Sorry, {book.Title} is already checked in\n");
+                Console.WriteLine($"Sorry, {book.Title} is already checked in");
             }
         }
 
@@ -182,7 +187,7 @@ namespace LibraryTerminal
             bool valid;
             do
             {
-                Console.Write($"Would you like to check out {book.Title}? (y/n): ");
+                Console.WriteLine($"Would you like to check out {book.Title}? (y/n)");
                 userDecision = Console.ReadLine().ToLower();
                 valid = userDecision != "y" && userDecision != "n";
                 if (valid)
@@ -192,13 +197,14 @@ namespace LibraryTerminal
             if (userDecision == "y" || book.Status == BookStatus.CheckedIn)
             {
                 book.Status = BookStatus.CheckedOut;
-                DateTime DueDate = DateTime.UtcNow.AddDays(14); //date not being added
-                //save file
-                Console.WriteLine($"{book.Title} has been checked out. The due date is {book.DueDate}\n");
+                DateTime DueDate = DateTime.UtcNow.AddDays(14);
+
+                BookRepository.WritetoFile(_bookLibrary);
+                Console.WriteLine($"{book.Title} has been checked out. The due date is {book.DueDate}");
             }
             else if (userDecision == "y" || book.Status == BookStatus.CheckedOut)
             {
-                Console.WriteLine($"Sorry, {book.Title} is already checked out\n");
+                Console.WriteLine($"Sorry, {book.Title} is already checked out");
             }
         }
     }

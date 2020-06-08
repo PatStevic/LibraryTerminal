@@ -7,10 +7,7 @@ namespace LibraryTerminal
 {
     public class Book
     {
-        public Book(List<Book> bookLibrary)
-        {
-        }
-
+        public Book() { }
         public Book(string title, string author)
         {
             Title = title;
@@ -34,11 +31,11 @@ namespace LibraryTerminal
         {
 
             if (Status == BookStatus.CheckedIn)
-                Console.WriteLine($"Title:{Title}\nAuthor:{Author}\nBook Status:{Status}\nBook Due Date: n/a\n");
+                Console.WriteLine($"Title:{Title}\nAuthor:{Author},\nBook Status:{Status}\nBook Due Date: n/a");
 
             if (Status == BookStatus.CheckedOut)
 
-                Console.WriteLine($"Title:{Title}\nAuthor:{Author}\nBook Status:{Status}\nBook Due Date:{DueDate}\n");
+                Console.WriteLine($"Title:{Title}\nAuthor:{Author},\nBook Status:{Status}\nBook Due Date:{DueDate}");
         }
     }
 }

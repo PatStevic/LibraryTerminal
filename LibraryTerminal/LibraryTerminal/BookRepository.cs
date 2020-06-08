@@ -30,12 +30,12 @@ namespace LibraryTerminal
             foreach (string line in lines)
             {
                 var splitDelimiter = line.Split(",");
-                returnListOfBooks.Add(new Book 
+                returnListOfBooks.Add(new Book
                 {
-                Title = splitDelimiter[0],
-                Author = splitDelimiter[1], 
-                Status = (BookStatus)Enum.Parse(typeof(BookStatus), splitDelimiter[2]),
-                DueDate = DateTime.Parse(splitDelimiter[3])
+                    Title = splitDelimiter[0],
+                    Author = splitDelimiter[1],
+                    Status = (BookStatus)Enum.Parse(typeof(BookStatus), splitDelimiter[2]),
+                    DueDate = DateTime.Parse(splitDelimiter[3])
                 }
                 );
             }
@@ -43,4 +43,3 @@ namespace LibraryTerminal
         }
     }
 }
-
