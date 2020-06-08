@@ -20,12 +20,12 @@ namespace LibraryTerminal
             {
                 do
                 {
-                    Console.WriteLine("Welcome to the Grand Circus Library!\n Would you like to check in a book, check out a book, or see the full library? Please enter 1, 2, or 3:\n (1)Check In\n (2)Check Out\n (3)View library");
+                    Console.WriteLine("Welcome to the Grand Circus Library!\n Would you like to check in a book, check out a book, or see the full library? Please enter 1, 2, or 3:\n (1)Check In\n (2)Check Out\n (3)View library\n");
                     userWouldLikeToCheckInOrCheckOutIsValid = int.TryParse(Console.ReadLine(), out userWouldLikeToCheckInOrCheckOut);
 
                     if (!userWouldLikeToCheckInOrCheckOutIsValid || userWouldLikeToCheckInOrCheckOut < 1 || userWouldLikeToCheckInOrCheckOut > 3)
                     {
-                        Console.WriteLine($"You have entered in an invalid selection. Please enter in 1, 2, or 3");
+                        Console.WriteLine($"You have entered in an invalid selection. Please enter in 1, 2, or 3\n");
                     }
                 } while (!userWouldLikeToCheckInOrCheckOutIsValid || userWouldLikeToCheckInOrCheckOut < 1 || userWouldLikeToCheckInOrCheckOut > 3);
 
@@ -50,9 +50,9 @@ namespace LibraryTerminal
 
                         }
 
-                        if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
+                        else if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
                         {
-                            library.SearchByTitle();
+                            correctBook = library.SearchByTitle();
                             library.CheckOutBook(correctBook);
                         }
 
@@ -71,20 +71,19 @@ namespace LibraryTerminal
                         if (userIsSearchingLibraryByAuthorTitleOrFullList == 1)
                         {
                             library.DisplayLibrary();
-                            Console.WriteLine($"\nWould you like to check out a book by by title or by author? Please enter 1 or 2:\n(1)By Author \n(2)By Title");
-
+                            Console.WriteLine($"\nWould you like to check out a book by by title or by author? Please enter 1 or 2:\n(1)By Author \n(2)By Title\n");
                         }
 
-                        if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
+                        else if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
                         {
-                            library.SearchByAuthor();
+
+                            correctBook = library.SearchByAuthor();
                             library.CheckInBook(correctBook);
-
                         }
 
-                        if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
+                        else if (userIsSearchingLibraryByAuthorTitleOrFullList == 3)
                         {
-                            library.SearchByTitle();
+                            correctBook = library.SearchByTitle();
                             library.CheckOutBook(correctBook);
 
                         }
@@ -96,7 +95,7 @@ namespace LibraryTerminal
                     do
                     {
                         library.DisplayLibrary();
-                        Console.WriteLine($"\nWould you like to go back to the main Menu or exit? Please enter 1 or 2:\n(1)Main Menu\n(2)Exit");
+                        Console.WriteLine($"\nWould you like to go back to the main Menu or exit? Please enter 1 or 2:\n(1)Main Menu\n(2)Exit\n");
                         invalidSelection = int.TryParse(Console.ReadLine(), out returnToMainMenuOrExit);
 
                         invalidSelection = returnToMainMenuOrExit != 1 && returnToMainMenuOrExit != 2;

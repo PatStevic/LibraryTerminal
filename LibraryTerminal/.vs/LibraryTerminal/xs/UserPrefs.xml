@@ -8,7 +8,6 @@
       <File FileName="LibraryTerminal/Library.cs" />
       <File FileName="LibraryTerminal/MenuOptions.cs" />
       <File FileName="LibraryTerminal/BookEnum.cs" />
-      <File FileName="LibraryTerminal/SaveText.cs" />
       <File FileName="LibraryTerminal/UserSelections.cs" />
     </Files>
     <Pads>

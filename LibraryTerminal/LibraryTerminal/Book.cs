@@ -34,11 +34,11 @@ namespace LibraryTerminal
         {
 
             if (Status == BookStatus.CheckedIn)
-                Console.WriteLine($"Title:{Title}\nAuthor:{Author},\nBook Status:{Status}\nBook Due Date: n/a");
+                Console.WriteLine($"Title:{Title}\nAuthor:{Author}\nBook Status:{Status}\nBook Due Date: n/a\n");
 
             if (Status == BookStatus.CheckedOut)
 
-                Console.WriteLine($"Title:{Title}\nAuthor:{Author},\nBook Status:{Status}\nBook Due Date:{DueDate}");
+                Console.WriteLine($"Title:{Title}\nAuthor:{Author}\nBook Status:{Status}\nBook Due Date:{DueDate}\n");
         }
     }
 }
