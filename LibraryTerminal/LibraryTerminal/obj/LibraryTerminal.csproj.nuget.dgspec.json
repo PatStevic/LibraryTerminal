@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pstevic\\OneDrive - KNEX\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal.csproj": {}
+    "C:\\Users\\pstevic\\OneDrive - Knex\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pstevic\\OneDrive - KNEX\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal.csproj": {
+    "C:\\Users\\pstevic\\OneDrive - Knex\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pstevic\\OneDrive - KNEX\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal.csproj",
+        "projectUniqueName": "C:\\Users\\pstevic\\OneDrive - Knex\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal.csproj",
         "projectName": "LibraryTerminal",
-        "projectPath": "C:\\Users\\pstevic\\OneDrive - KNEX\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal.csproj",
+        "projectPath": "C:\\Users\\pstevic\\OneDrive - Knex\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal.csproj",
         "packagesPath": "C:\\Users\\pstevic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pstevic\\OneDrive - KNEX\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\obj\\",
+        "outputPath": "C:\\Users\\pstevic\\OneDrive - Knex\\Desktop\\Grand_Circus\\LibraryTerminal\\LibraryTerminal\\LibraryTerminal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
