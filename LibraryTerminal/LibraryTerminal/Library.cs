@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace LibraryTerminal
@@ -9,9 +7,7 @@ namespace LibraryTerminal
     public class Library
     {
         private List<Book> _bookLibrary;
-        public List<Book> _checkedOutBooks;
-        public List<Book> _checkedInBooks;
-        static string filePath = System.IO.Path.GetFullPath(@"..\..\..\..\SavedBookLibrary.txt"); // "@" is a string literal
+        static string filePath = Path.GetFullPath(@"..\..\..\..\SavedBookLibrary.txt"); // "@" is a string literal
         public Library()
         {
             if (!File.Exists(filePath))
@@ -67,15 +63,22 @@ namespace LibraryTerminal
                 }
                 if (bookByTitle.Count == 0)
                 {
+                    bool keepGoing;
                     do
                     {
-                        Console.WriteLine("Book not found. Would you like to try again, y/n?");
+                        Console.Write("Book not found. Would you like to try again? (y/n): ");
                         userWantsToContinue = Console.ReadLine().ToLower();
-                        if (userWantsToContinue != "y" || userWantsToContinue != "n")
+                        if (userWantsToContinue == "y" || userWantsToContinue == "n")
+                        {
+                            keepGoing = false;
+                        }
+                        else
                         {
                             Console.WriteLine("Invalid entry. Please enter y/n");
+                            keepGoing = true;
                         }
-                    } while (userWantsToContinue != "y" || userWantsToContinue != "n");
+                    } while (keepGoing);
+
                 }
                 else if (bookByTitle.Count == 1)
                 {
@@ -119,15 +122,22 @@ namespace LibraryTerminal
                 }
                 if (bookByAuthor.Count == 0)
                 {
+                    bool keepGoing;
                     do
                     {
-                        Console.WriteLine("Book not found. Would you like to try again, y/n?");
+                        Console.Write("Book not found. Would you like to try again? (y/n): ");
                         userWantsToContinue = Console.ReadLine().ToLower();
-                        if (userWantsToContinue != "y" || userWantsToContinue != "n")
+                        if (userWantsToContinue == "y" || userWantsToContinue == "n")
+                        {
+                            keepGoing = false;
+                        }
+                        else
                         {
                             Console.WriteLine("Invalid entry. Please enter y/n");
+                            keepGoing = true;
                         }
-                    } while (userWantsToContinue != "y" || userWantsToContinue != "n");
+                    } while (keepGoing);
+
                 }
                 else if (bookByAuthor.Count == 1)
                 {
@@ -197,7 +207,7 @@ namespace LibraryTerminal
             if (userDecision == "y" || book.Status == BookStatus.CheckedIn)
             {
                 book.Status = BookStatus.CheckedOut;
-                DateTime DueDate = DateTime.UtcNow.AddDays(14);
+                book.DueDate = DateTime.UtcNow.AddDays(14);
 
                 BookRepository.WritetoFile(_bookLibrary);
                 Console.WriteLine($"{book.Title} has been checked out. The due date is {book.DueDate}");
