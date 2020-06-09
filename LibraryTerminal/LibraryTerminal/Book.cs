@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 
 namespace LibraryTerminal
@@ -13,7 +11,7 @@ namespace LibraryTerminal
             Title = title;
             Author = author;
             Status = BookStatus.CheckedIn;
-            DueDate = DateTime.MinValue;
+            DueDate = DateTime.Today;
         }
 
         // var book1 = new Book("", "", 12);

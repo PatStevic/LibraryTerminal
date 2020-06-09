@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace LibraryTerminal
@@ -9,7 +7,7 @@ namespace LibraryTerminal
     public class Library
     {
         private List<Book> _bookLibrary;
-        static string filePath = System.IO.Path.GetFullPath(@"..\..\..\..\SavedBookLibrary.txt"); // "@" is a string literal
+        static string filePath = Path.GetFullPath(@"..\..\..\..\SavedBookLibrary.txt"); // "@" is a string literal
         public Library()
         {
             if (!File.Exists(filePath))
