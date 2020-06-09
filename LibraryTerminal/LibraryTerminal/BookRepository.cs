@@ -8,7 +8,7 @@ namespace LibraryTerminal
 {
     public class BookRepository
     {
-        static string filePath = System.IO.Path.GetFullPath(@"..\..\..\..\SavedBookLibrary.txt"); // "@" is a string literal
+        static string filePath = Path.GetFullPath(@"..\..\..\..\SavedBookLibrary.txt"); // "@" is a string literal
 
 
         public static void WritetoFile(List<Book> booksToSave)
