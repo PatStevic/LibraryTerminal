@@ -3,7 +3,7 @@ Astrophysics For People In a Hurry,DeGrasse Tyson, CheckedIn, 1/1/0001 12:00:00 
 The Tanning of America,Stoute, CheckedIn, 1/1/0001 12:00:00 AM
 How To Win Friends and Influence People,Carnegie, CheckedIn, 1/1/0001 12:00:00 AM
 The Siren,Reisz, CheckedIn, 1/1/0001 12:00:00 AM
-A Game of Thornes,Martin, CheckedIn, 1/1/0001 12:00:00 AM
+A Game of Thrones,Martin, CheckedIn, 6/8/2020 12:00:00 AM
 The Bit Picture,Carroll, CheckedIn, 1/1/0001 12:00:00 AM
 Gabriel's Inferno,Reynard, CheckedIn, 1/1/0001 12:00:00 AM
 The End of Our Story,Haston, CheckedIn, 1/1/0001 12:00:00 AM
