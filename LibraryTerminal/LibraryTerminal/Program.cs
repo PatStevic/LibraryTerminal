@@ -36,7 +36,7 @@ namespace LibraryTerminal
                     {
                         Book correctBook;
 
-                        Console.WriteLine($"\nLets return the book. Would you like to return the book by Author or by Title? Please enter 1 or 2 :\n(1)Search By Author\n(2)Search By Title\n");
+                        Console.WriteLine($"\nLet's return the book. Would you like to return the book by Author or by Title? Please enter 1 or 2 :\n(1)Search By Author\n(2)Search By Title\n");
                         userIsSearchingLibraryByAuthorOrTitleIsValid = int.TryParse(Console.ReadLine(), out userIsSearchingLibraryByAuthorTitleOrFullList);
 
 
@@ -48,8 +48,6 @@ namespace LibraryTerminal
                             {
                                 library.CheckInBook(correctBook);
                             }
-
-
                         }
 
                         else if (userIsSearchingLibraryByAuthorTitleOrFullList == 2)
@@ -61,8 +59,6 @@ namespace LibraryTerminal
                             }
 
                         }
-
-
 
                     } while (!userIsSearchingLibraryByAuthorOrTitleIsValid || userIsSearchingLibraryByAuthorTitleOrFullList < 1 || userIsSearchingLibraryByAuthorTitleOrFullList > 2);
                 }

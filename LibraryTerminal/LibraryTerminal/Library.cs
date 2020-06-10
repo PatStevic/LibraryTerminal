@@ -211,7 +211,7 @@ namespace LibraryTerminal
                     Console.WriteLine("Invalid Entry, Please try again!");
             } while (valid);
 
-            if (userDecision == "y" || book.Status == BookStatus.CheckedIn)
+            if (userDecision == "y" && book.Status == BookStatus.CheckedIn)
             {
                 book.Status = BookStatus.CheckedOut;
                 book.DueDate = DateTime.UtcNow.AddDays(14);
@@ -219,7 +219,7 @@ namespace LibraryTerminal
                 BookRepository.WritetoFile(_bookLibrary);
                 Console.WriteLine($"{book.Title} has been checked out. The due date is {book.DueDate}\n");
             }
-            else if (userDecision == "y" || book.Status == BookStatus.CheckedOut)
+            else if (userDecision == "y" && book.Status == BookStatus.CheckedOut)
             {
                 Console.WriteLine($"Sorry, {book.Title} is already checked out");
             }
