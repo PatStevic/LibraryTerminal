@@ -1,12 +1,12 @@
 Thrifty Years,Meijer, CheckedIn, 1/1/0001 12:00:00 AM
-Astrophysics For People In a Hurry,DeGrasse Tyson, CheckedOut, 6/23/2020 10:00:05 PM
-The Tanning of America,Stoute, CheckedOut, 6/23/2020 11:33:39 PM
+Astrophysics For People In a Hurry,DeGrasse Tyson, CheckedIn, 6/10/2020 12:00:00 AM
+The Tanning of America,Stoute, CheckedIn, 6/10/2020 12:00:00 AM
 How To Win Friends and Influence People,Carnegie, CheckedIn, 1/1/0001 12:00:00 AM
 The Siren,Reisz, CheckedIn, 1/1/0001 12:00:00 AM
-A Game of Thrones,Martin, CheckedOut, 6/24/2020 12:07:45 AM
-The Bit Picture,Carroll, CheckedOut, 6/23/2020 11:29:34 PM
+A Game of Thrones,Martin, CheckedIn, 6/10/2020 12:00:00 AM
+The Bit Picture,Carroll, CheckedOut, 6/24/2020 9:02:18 PM
 Gabriel's Inferno,Reynard, CheckedIn, 1/1/0001 12:00:00 AM
 The End of Our Story,Haston, CheckedIn, 1/1/0001 12:00:00 AM
 First Field Guide Amphibians,Cassie, CheckedIn, 1/1/0001 12:00:00 AM
 Strengths Based Leadership,Rath, CheckedIn, 1/1/0001 12:00:00 AM
-Everything Happens For A Reason,Kirshenbaum, CheckedIn, 1/1/0001 12:00:00 AM
+Everything Happens For A Reason,Kirshenbaum, CheckedOut, 6/24/2020 9:51:08 PM

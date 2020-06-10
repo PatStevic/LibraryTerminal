@@ -33,7 +33,6 @@ namespace LibraryTerminal
             }
             _bookLibrary = BookRepository.ReadFromFile();
         }
-
         private void DisplayBooks(List<Book> books)
         {
             for (int i = 0; i < books.Count; i++)
@@ -42,12 +41,10 @@ namespace LibraryTerminal
                 books[i].DisplayBook();
             }
         }
-
         public void DisplayLibrary()
         {
             DisplayBooks(_bookLibrary);
         }
-
         public Book SearchByTitle()
         {
             string userWantsToContinue = "n";
@@ -93,21 +90,20 @@ namespace LibraryTerminal
                 {
                     DisplayBooks(bookByTitle);
                     Console.WriteLine("Which book would you like to choose? (Please enter corresponding number)");
-                    var userSelectBook = Console.ReadLine().ToLower();
 
+                    var userSelectBook = Console.ReadLine().ToLower();
                     var isBookValid = int.TryParse(userSelectBook, out var correctBook);
-                    if (isBookValid && correctBook < bookByTitle.Count)
+
+                    if (isBookValid && correctBook <= bookByTitle.Count)
                     {
                         return bookByTitle[correctBook - 1];
                     }
-
                     Console.WriteLine("Invalid entry!");
                     userWantsToContinue = "y";
                 }
             } while (userWantsToContinue == "y");
             return null;
         }
-
         public Book SearchByAuthor()
         {
             string userWantsToContinue = "n";
@@ -142,34 +138,31 @@ namespace LibraryTerminal
                             keepGoing = true;
                         }
                     } while (keepGoing);
-
                 }
                 else if (bookByAuthor.Count == 1)
                 {
                     Console.WriteLine($"{bookByAuthor[0].Title} by {bookByAuthor[0].Author}");
                     return bookByAuthor[0];
-
                 }
                 else if (bookByAuthor.Count > 1)
                 {
                     DisplayBooks(bookByAuthor);
                     Console.WriteLine("Which book would you like to choose? (Please enter corresponding number)\n");
-                    var userSelectBook = Console.ReadLine();
+                    var userSelectBook = Console.ReadLine().ToLower();
 
                     var isBookValid = int.TryParse(userSelectBook, out var correctBook);
 
-                    if (isBookValid && correctBook < bookByAuthor.Count)
+                    if (isBookValid && correctBook <= bookByAuthor.Count)
                     {
                         return bookByAuthor[correctBook - 1];
                     }
-
                     Console.WriteLine("Invalid entry!\n");
                     userWantsToContinue = "y";
+
                 }
             } while (userWantsToContinue == "y");
             return null;
         }
-
         public void CheckInBook(Book book)
         {
             string userDecision;
@@ -184,7 +177,7 @@ namespace LibraryTerminal
                     Console.WriteLine("Invalid Entry, Please try again!\n");
             } while (valid);
 
-            if (userDecision == "y" || book.Status == BookStatus.CheckedOut)
+            if (userDecision == "y" && book.Status == BookStatus.CheckedOut)
             {
                 book.Status = BookStatus.CheckedIn;
                 book.DueDate = DateTime.Today;
@@ -192,12 +185,11 @@ namespace LibraryTerminal
                 BookRepository.WritetoFile(_bookLibrary);
                 Console.WriteLine($"{book.Title} has been checked back in\n");
             }
-            else if (userDecision == "y" || book.Status == BookStatus.CheckedIn)
+            else if (userDecision == "y" && book.Status == BookStatus.CheckedIn)
             {
                 Console.WriteLine($"Sorry, {book.Title} is already checked in\n");
             }
         }
-
         public void CheckOutBook(Book book)
         {
             string userDecision;
