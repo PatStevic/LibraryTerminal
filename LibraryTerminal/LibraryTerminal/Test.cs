@@ -10,7 +10,6 @@ namespace LibraryTerminal
         {
             book.Status = BookStatus.CheckedIn;
         }
-
         public void BookCheckOut(Book book)
         {
             book.Status = BookStatus.CheckedOut;
@@ -18,7 +17,5 @@ namespace LibraryTerminal
             string date = DateTime.UtcNow.ToString("MM-dd-yyyy");
             Console.WriteLine($"The due date is {date + 14}");
         }
-
-
     }
 }
